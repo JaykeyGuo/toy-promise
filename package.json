@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "promises-aplus-tests ./toy-promise.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/JaykeyGuo/toy-promise/issues"
   },
-  "homepage": "https://github.com/JaykeyGuo/toy-promise#readme"
+  "homepage": "https://github.com/JaykeyGuo/toy-promise#readme",
+  "devDependencies": {
+    "promises-aplus-tests": "^2.1.2"
+  }
 }
