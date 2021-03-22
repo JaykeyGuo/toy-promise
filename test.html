@@ -9,7 +9,7 @@
   <script type="module">
     // import ToyPromise from './toy-promise-v1.js';
     // import ToyPromise from './toy-promise-v2.js';
-    // import ToyPromise from './toy-promise-v3.js';
+    import ToyPromise from './toy-promise-v3.js';
     // import ToyPromise from './test.js';
 
     // setTimeout(() => {
@@ -23,18 +23,18 @@
     // }).then(() => {
     //   console.log('then');
     // })
-    
+
     // TODO: basic test
-    // const promise = new ToyPromise((resolve, reject) => {
-    //   resolve('成功');
-    // }).then(
-    //   (data) => {
-    //     console.log('success', data)
-    //   },
-    //   (err) => {
-    //     console.log('faild', err)
-    //   }
-    // )
+    const promise = new ToyPromise((resolve, reject) => {
+      resolve('成功');
+    }).then(
+      (data) => {
+        console.log('success', data)
+      },
+      (err) => {
+        console.log('faild', err)
+      }
+    )
 
     // TODO: test catch
     // const promise1 = new ToyPromise((resolve, reject) => {
@@ -46,16 +46,16 @@
     // });
 
     // TODO: test allSettled
-    const promise1 = ToyPromise.resolve(3);
-    const promise2 = new ToyPromise((resolve, reject) => setTimeout(reject, 100, 'foo'));
-    const promises = [promise1, promise2];
+    // const promise1 = ToyPromise.resolve(3);
+    // const promise2 = new ToyPromise((resolve, reject) => setTimeout(resolve, 100, 'foo'));
+    // const promises = [promise1, promise2];
 
-    ToyPromise.allSettled(promises).
-      then((results) => results.forEach((result) => console.log(result)));
+    // ToyPromise.allSettled(promises).
+    //   then((results) => results.forEach((result) => console.log(result)));
 
     // TODO: test race
     // const promise1 = ToyPromise.resolve(3);
-    // const promise2 = new ToyPromise((resolve, reject) => setTimeout(reject, 100, 'foo'));
+    // const promise2 = new ToyPromise((resolve, reject) => setTimeout(resolve, 100, 'foo'));
 
     // ToyPromise.race([promise1, promise2]).then((value) => {
     //   console.log(value);
@@ -63,14 +63,13 @@
     // });
 
     // TODO: test any
-    // const promise3 = new Promise((resolve) => setTimeout(resolve, 500, 'slow'));
-
-    // const promise1 = Promise.resolve(3);
-    // const promise2 = new Promise((resolve, reject) => setTimeout(reject, 100, 'foo'));
+    // const promise1 = ToyPromise.resolve(3);
+    // const promise2 = new ToyPromise((resolve, reject) => setTimeout(reject, 100, 'foo'));
+    // const promise3 = new ToyPromise((resolve) => setTimeout(resolve, 500, 'slow'));
 
     // const promises = [promise1, promise2, promise3];
 
-    // Promise.any(promises).then((value) => console.log(value));
+    // ToyPromise.any(promises).then((value) => console.log(value));
   </script>
 </body>
 </html>
