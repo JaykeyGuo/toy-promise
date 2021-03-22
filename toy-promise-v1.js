@@ -194,6 +194,6 @@ ToyPromise.deferred = function() {
   return defer;
 };
 
-// export default ToyPromise;
+export default ToyPromise;
 
-module.exports = ToyPromise;
+// module.exports = ToyPromise;
