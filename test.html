@@ -25,16 +25,16 @@
     // })
 
     // TODO: basic test
-    const promise = new ToyPromise((resolve, reject) => {
-      resolve('成功');
-    }).then(
-      (data) => {
-        console.log('success', data)
-      },
-      (err) => {
-        console.log('faild', err)
-      }
-    )
+    // const promise = new ToyPromise((resolve, reject) => {
+    //   resolve('成功');
+    // }).then(
+    //   (data) => {
+    //     console.log('success', data)
+    //   },
+    //   (err) => {
+    //     console.log('faild', err)
+    //   }
+    // )
 
     // TODO: test catch
     // const promise1 = new ToyPromise((resolve, reject) => {
@@ -44,6 +44,18 @@
     // promise1.catch((error) => {
     //   console.error(error);
     // });
+
+    // TODO: test all
+    const promise1 = ToyPromise.resolve(3);
+    const promise2 = ToyPromise.resolve(99);
+    // const promise2 = new ToyPromise((resolve, reject) => setTimeout(reject, 100, 'foo'));
+    const promises = [promise1, promise2];
+
+    // console.log(ToyPromise.all(promises).then());
+
+    ToyPromise.all(promises)
+      .then((results) => {console.log(results, '0000')})
+      .catch((e) => console.error(e));
 
     // TODO: test allSettled
     // const promise1 = ToyPromise.resolve(3);
