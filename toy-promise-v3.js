@@ -63,7 +63,6 @@ class Bromise {
     if (this.state === FULFILLED) {
       return (promise2 = new Bromise((resolve, reject) => {
         window.addEventListener('message', () => {
-        // setTimeout(() => {
           try {
             let x = onFulfiled(this.value);
             resolvePromise(promise2, x, resolve, reject);
@@ -78,7 +77,6 @@ class Bromise {
     if (this.state === REJECTED) {
       return (promise2 = new Bromise((resolve, reject) => {
         window.addEventListener('message', () => {
-        // setTimeout(() => {
           try {
             let x = onRejected(this.reason);
             resolvePromise(promise2, x, resolve, reject);
@@ -95,7 +93,7 @@ class Bromise {
         this.onFulFilledCallbacks.push((value) => {
           try {
             let x = onFulfiled(value);
-            resolvePromise(promise2, x);
+            resolvePromise(promise2, x, resolve, reject);
           } catch(e) {
             reject(e);
           }
@@ -104,7 +102,7 @@ class Bromise {
         this.onRejectedCallbacks.push((reason) => {
           try {
             let x = onRejected(reason);
-            resolvePromise(promise2, x);
+            resolvePromise(promise2, x, resolve, reject);
           } catch(e) {
             reject(e);
           }
@@ -192,10 +190,10 @@ Bromise.all = (fns) => {
     let count = 0;
     let res = [];
     fns.forEach((fn, index) => {
-      fn.then((r) => {
+      fn.then((val) => {
         count++;
-        res[index] = r;
-        if (count === fn.length) {
+        res[index] = val;
+        if (count === fns.length) {
           resolve(res);
         }
       }, (reason) => {
